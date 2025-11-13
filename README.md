@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-- [📋 Overview](#-overview)
-- [📦 Requirements](#-requirements)
-- [🚀 Quick Start](#-quick-start)
-- [⚙️ Configuration](#-configuration)
-- [🔌 Disabling the Component](#-disabling-the-component)
-- [📈 Stack Monitoring](#-stack-monitoring)
-- [📡 API Endpoints](#-api-endpoints)
-- [🔗 See Also](#-see-also)
+- [📋 Overview](#overview)
+- [📦 Requirements](#requirements)
+- [🚀 Quick Start](#quick-start)
+- [⚙️ Configuration](#configuration)
+- [🔌 Disabling the Component](#disabling-the-component)
+- [📈 Stack Monitoring](#stack-monitoring)
+- [📡 API Endpoints](#api-endpoints)
+- [🔗 See Also](#see-also)
 
-## 📋 Overview
+## 📋Overview
 
 The **SysMon** component provides a real-time system monitor for ESP-IDF projects. It runs a lightweight background task that samples your system's FreeRTOS tasks and memory usage, then serves this data through a web-based dashboard that you can access from any browser.
 
@@ -38,7 +38,7 @@ The **SysMon** component provides a real-time system monitor for ESP-IDF project
 - Web UI files are embedded in flash memory (no SD card or external storage needed)
 - Modern web technologies (Tailwind CSS, Chart.js) loaded via CDN to minimize device component filesize
 
-## 📦 Requirements
+## 📦Requirements
 
 - ESP-IDF v4.4 or later (FreeRTOS must be enabled, which is the default)
 - Your project must have Wi-Fi (or Ethernet) configured and connected before initializing SysMon
@@ -55,7 +55,7 @@ SysMon requires two FreeRTOS features to be enabled. These are usually enabled b
 - `CONFIG_FREERTOS_USE_TRACE_FACILITY=y` - Required for `uxTaskGetSystemState()` to enumerate all tasks
 - `CONFIG_FREERTOS_GENERATE_RUN_TIME_STATS=y` - Required for CPU usage calculations based on task runtime counters
 
-## 🚀 Quick Start
+## 🚀Quick Start
 
 1. **Add to your project:** Copy the `sysmon` directory into your project's `components/` folder.
 
@@ -94,7 +94,7 @@ If initialization fails, verify that WiFi is connected and has obtained an IP ad
 
 **Example implementation:** See [`example/main/main.c`](example/main/main.c) for a complete working example that demonstrates WiFi setup, SysMon initialization, task creation, and stack registration. This demo app creates several example tasks (CPU load generator, task lifecycle manager, RGB LED controller) and registers them with SysMon to showcase the monitoring capabilities.
 
-## ⚙️ Configuration
+## ⚙️Configuration
 
 SysMon uses ESP-IDF's Kconfig system for configuration. Run `idf.py menuconfig` and navigate to **Component config → SysMon Configuration**:
 
@@ -115,7 +115,7 @@ Alternatively, edit `sdkconfig` directly: `CONFIG_LWIP_MAX_SOCKETS=16`
 
 The build system will warn if `CONFIG_LWIP_MAX_SOCKETS` is too low.
 
-## 🔌 Disabling the Component
+## 🔌Disabling the Component
 
 If you are working on a project where you often need to turn SysMon on or off, for example during development when you want to test your code with and without certain features, you need to make sure your build does not fail when SysMon is removed. This is important because your code might call `sysmon_init()` or `sysmon_stack_register()` even when the component is not present, leading to linker errors.
 
@@ -149,7 +149,7 @@ esp_err_t sysmon_init(void)
 }
 ```
 
-## 📈 Stack Monitoring
+## 📈Stack Monitoring
 
 FreeRTOS tracks stack usage using a metric called the **High Water Mark** (HWM), which represents the smallest amount of free stack space that has been available since the task started running. Think of it like tracking the deepest your stack has ever grown - the "high water mark" shows how close you've come to overflow.
 
@@ -187,7 +187,7 @@ To interpret stack usage meaningfully, you need both the total stack size and th
 
 If the HWM approaches zero, stack reallocation is required. Stack overflows are hard to predict and debug, potentially resulting in undefined system behavior. Accurate risk assessment requires all tasks to be registered.
 
-## 📡 API Endpoints
+## 📡API Endpoints
 
 The web dashboard uses four JSON API endpoints:
 
@@ -203,6 +203,6 @@ All endpoints return JSON data. The web UI polls `/telemetry` and `/history` at 
 
 For implementation details, file descriptions, and information about the web server architecture, see [FILES.md](FILES.md).
 
-## 🔗 See Also
+## 🔗See Also
 
 - Original Arduino implementation: [jameszah/ESP32-Task-Manager](https://github.com/jameszah/ESP32-Task-Manager)
