@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-- [📋 Overview](#overview)
-- [📦 Requirements](#requirements)
-- [🚀 Quick Start](#quick-start)
-- [⚙️ Configuration](#configuration)
-- [🔌 Disabling the Component](#disabling-the-component)
-- [📈 Stack Monitoring](#stack-monitoring)
-- [📡 API Endpoints](#api-endpoints)
-- [🔗 See Also](#see-also)
+- [📋 Overview](#-overview)
+- [📦 Requirements](#-requirements)
+- [🚀 Quick Start](#-quick-start)
+- [⚙️ Configuration](#-configuration)
+- [🔌 Disabling the Component](#-disabling-the-component)
+- [📈 Stack Monitoring](#-stack-monitoring)
+- [📡 API Endpoints](#-api-endpoints)
+- [🔗 See Also](#-see-also)
 
 ## 📋 Overview
 
