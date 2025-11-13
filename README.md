@@ -1,5 +1,7 @@
 # 📊 SysMon - ESP IDF System Monitor Component
 
+<video placeholder>
+
 ## Table of Contents
 
 - [📋 Overview](#overview)
@@ -13,7 +15,7 @@
 
 ## 📋Overview
 
-The **SysMon** component provides a real-time system monitor for ESP-IDF projects. It runs a lightweight background task that samples your system's FreeRTOS tasks and memory usage, then serves this data through a web-based dashboard that you can access from any browser.
+The **SysMon** component provides a real-time system monitor for ESP-IDF projects. While it is tested primarily on ESP32, it is designed to work on most ESP-IDF targets. SysMon runs a lightweight background task that samples your FreeRTOS tasks and memory usage, then serves this data through a web-based dashboard accessible from any browser.
 
 **What it monitors:**
 
