@@ -266,7 +266,8 @@ static void _update_task_history(int idx, const TaskStatus_t *task_status, uint3
     self.tasks[idx].current_priority = task_status->uxCurrentPriority;
     self.tasks[idx].base_priority = task_status->uxBasePriority;
     self.tasks[idx].total_run_time_ticks = task_status->ulRunTimeCounter;
-    self.tasks[idx].core_id = task_status->xCoreID;
+    // Note: xCoreID not available in ESP-IDF v5.5 TaskStatus_t, using -1 as unknown
+    self.tasks[idx].core_id = -1;
 }
 
 /**
